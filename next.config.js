@@ -14,13 +14,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-      },
-    ],
+    unoptimized: true, // Disable image optimization & domain restrictions
   },
 };
 
