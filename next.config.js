@@ -14,13 +14,9 @@ const nextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-        port: "",
-      },
-    ],
+
+    unoptimized: true, // Disable image optimization & domain restrictions
+
   },
 };
 
