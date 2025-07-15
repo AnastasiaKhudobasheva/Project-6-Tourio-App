@@ -35,9 +35,16 @@ export default function DetailsPage() {
   const { isReady } = router;
   const { id } = router.query;
 
-  const { data: place, isLoading, error } = useSWR(`/api/places/${id}`);
+  const {
+    data: place,
+    isLoading,
+    error,
+  } = useSWR(isReady ? `/api/places/${id}` : null);
+  // makes sure useSWR only fires after id is available. null means "don’t fetch yet"
 
-  if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+  if (!isReady || isLoading) return <h2>Loading...</h2>;
+  if (error) return <h2>Error loading place.</h2>;
+  if (!place) return <h2>No place found.</h2>;
 
   async function deletePlace() {
     const confirmed = confirm("Delete this place?");

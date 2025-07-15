@@ -14,7 +14,9 @@ const nextConfig = {
     return config;
   },
   images: {
+
     unoptimized: true, // Disable image optimization & domain restrictions
+
   },
 };
 
