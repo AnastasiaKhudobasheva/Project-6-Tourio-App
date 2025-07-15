@@ -47,7 +47,20 @@ export default function DetailsPage() {
   if (!place) return <h2>No place found.</h2>;
 
   async function deletePlace() {
-    console.log("Deleting place ...");
+    const confirmed = confirm("Delete this place?");
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(`/api/places/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error("Delete failed");
+
+      router.push("/");
+    } catch (err) {
+      console.error("Failed to delete:", err);
+    }
   }
 
   return (
