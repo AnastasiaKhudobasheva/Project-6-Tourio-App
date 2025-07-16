@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
-import Comments from "../../../components/Comments";
+import Comments from "@/components/Comments";
 import { StyledLink } from "../../../components/StyledLink";
 import { StyledButton } from "../../../components/StyledButton";
 import { StyledImage } from "../../../components/StyledImage";
@@ -92,6 +92,7 @@ export default function DetailsPage() {
           Delete
         </StyledButton>
       </ButtonContainer>
+      <Comments locationName={place.name} />
     </>
   );
 }
